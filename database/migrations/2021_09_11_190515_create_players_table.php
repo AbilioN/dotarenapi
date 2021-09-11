@@ -25,8 +25,10 @@ class CreatePlayersTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('twitch')->nullable();
             $table->string('discord')->nullable();
-            $table->unsignedBigInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('primary_role_id');
+            $table->unsignedBigInteger('secondary_role_id');
+            $table->foreign('primary_role_id')->references('id')->on('roles');
+            $table->foreign('secondary_role_id')->references('id')->on('roles');
             $table->timestamps();
         });
     }
