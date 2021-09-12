@@ -20,9 +20,6 @@ class UserTest extends TestCase
     public function setUp(): void
     {
 
-        // @TODO: use this lane when sqlite memory ready
-        // $this->user = factory(User::class)->create();
-
         $this->user = User::where('is_admin' , false)->orderByRaw('RAND()')->first();   
 
     }

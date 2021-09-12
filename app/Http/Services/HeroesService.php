@@ -4,24 +4,26 @@ namespace App\Http\Services;
 
 use App\Helpers\ExternalApiCall;
 
-class HeroService
+class HeroService extends BaseService
 {
-    protected $url =  'https://api.opendota.com/api/heroStats';
-
-
+    protected $url;
+    
     function __construct()
     {
+        $this->url = parent::$baseUrl.'heroStats';
         $this->api = new ExternalApiCall();
+
     }
+
 
     public function getAllHeroes()
     {
         $allHeroes = $this->api->call($this->url);
-        $allHeroes = json_decode($allHeroes);
-        $allHeroes = collect($allHeroes);
-        $allHeroes = $allHeroes->map(function ($hero){
-            $hero->img = $this->url . $hero->img;
-            $hero->icon = $this->url . $hero->icon;
+        $baseUrl = 'https://api.opendota.com';
+
+        $allHeroes = $allHeroes->map(function ($hero) use ($baseUrl){
+                $hero['img'] = $baseUrl . $hero['img'];
+                $hero['icon'] = $baseUrl . $hero['icon'];
             return $hero;
         });
         return $allHeroes;

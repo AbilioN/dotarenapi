@@ -42,7 +42,7 @@ class ExternalApiCall
             $responseBody = $response->getBody();
             $responseStatusCode = $response->getStatusCode();
 
-            return $responseBody->getContents();
+            return collect(json_decode($responseBody->getContents(), true));
 
         } catch (\Throwable $e)
         {

@@ -23,6 +23,7 @@ class HeroesTest extends TestCase
     /** @test */
     public function heroes_can_be_showed()
     {
+        $this->withExceptionHandling();
         $response = $this->get(route('api.heroes.show'));
         $response->assertStatus(200);
     }

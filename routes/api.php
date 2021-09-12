@@ -18,3 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('heroes/show' , 'HeroesController@show')->name('api.heroes.show');
+
+Route::get('players/{playerId}' , 'PlayerController@show')->name('api.players.show');
+
+Route::get('/' , function(){
+    dd('espinho');
+});
