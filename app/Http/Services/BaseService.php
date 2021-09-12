@@ -8,9 +8,10 @@ class BaseService
 {
 
     public static $baseUrl = 'https://api.opendota.com/api/';
-    function __construct()
+    // public $api;
+    function __construct(ExternalApiCall $api)
     {
-        $this->api = new ExternalApiCall();
+        // $this->api = $api;
         // $this->baseUrl = 'https://api.opendota.com/api/';
     }
 }
