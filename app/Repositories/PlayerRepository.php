@@ -1,10 +1,11 @@
 <?php
 namespace App\Repositories;
 
+use App\Http\Interfaces\PlayerInterface;
 use App\Http\Services\PlayerService;
 use App\Models\Player;
 
-class PlayerRepository
+class PlayerRepository implements PlayerInterface
 {
     private $model;
     private $service;

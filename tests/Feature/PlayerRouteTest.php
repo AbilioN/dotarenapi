@@ -8,19 +8,15 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class PlayerRoutineTest extends TestCase
+class PlayerRouteTest extends TestCase
 {
-
-    function __construct()
-    {
-        parent::setUp();
-    }
 
     public function setUp(): void
     {
         
         $this->user = User::where('is_admin' , false)->orderByRaw('RAND()')->first();  
         $this->player = Player::where('user_id' , $this->user->id)->first(); 
+        dd($this->player);
 
     }
     /**
@@ -31,13 +27,13 @@ class PlayerRoutineTest extends TestCase
 
 
     /** @test */
-    // public function a_player_have_stats()
-    // {
-    //     $this->withExceptionHandling();
-    //     // $response = $this->get(route('api.players.show',  $this->player->id));
-    //     // $response = $this->get('players/'.$this->player->id);
-    //     $response = $this->get(route('api.heroes.show'));
+    public function a_player_have_stats()
+    {
+        $this->withExceptionHandling();
+        // $response = $this->get(route('api.players.show',  $this->player->id));
+        // $response = $this->get('players/'.$this->player->id);
+        $response = $this->get(route('api.heroes.show'));
 
-    //     $response->assertStatus(200);
-    // }
+        $response->assertStatus(200);
+    }
 }
