@@ -7,7 +7,7 @@ class PlayerService extends BaseService
 {
     private  $url;
 
-    function __construct($steamId = null)
+    public function __construct($steamId = null)
     {
         $this->steamId = $steamId;
         $this->url = 'https://api.opendota.com/api/'.'players'.'/'.$this->steamId;

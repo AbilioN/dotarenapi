@@ -21,6 +21,8 @@ Route::get('heroes/show' , 'HeroesController@show')->name('api.heroes.show');
 
 Route::get('players/{playerId}' , 'PlayerController@show')->name('api.players.show');
 
+Route::get('matches/{matchId}' , 'MatchController@find')->name('api.matches.find');
+
 Route::get('/' , function(){
     dd('espinho');
 });
