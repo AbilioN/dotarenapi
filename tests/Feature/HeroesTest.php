@@ -13,17 +13,11 @@ class HeroesTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
 
     /** @test */
     public function heroes_can_be_showed()
     {
-        $this->withExceptionHandling();
+        $this->withoutExceptionHandling();
         $response = $this->get(route('api.heroes.show'));
         $response->assertStatus(200);
     }

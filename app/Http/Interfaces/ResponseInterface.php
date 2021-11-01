@@ -7,4 +7,6 @@ interface ResponseInterface
     function sucess($body);
 
     function serverError($body);
+
+    function notFound($body);
 }

@@ -16,8 +16,7 @@ class HeroesController extends Controller
 
     public function show()
     {
-        // $heroes = $this->servicer->getAllHeroes();
-        $this->heroes->listAllHeroes();
+        $heroes = $this->heroes->listAllHeroes();
         return response()->json([
             'success' => true,
             'body' => $heroes

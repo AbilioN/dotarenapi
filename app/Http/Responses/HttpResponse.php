@@ -15,11 +15,19 @@ class HttpResponse implements ResponseInterface
         ], 200);
     }
 
+    public function notFound($body)
+    {
+        return response()->json([
+            'sucess' => false,
+            'body' => $body
+        ], 404);
+    }
+
     public function serverError($body)
     {
         return response()->json([
             'sucess' => false,
             'body' => $body
-        ]);
+        ], 500);
     }
 }

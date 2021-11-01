@@ -16,7 +16,6 @@ class PlayerController extends Controller
     private $player;
     private $response;
 
-
     function __construct(PlayerInterface $player, ResponseInterface $response)
     {
         $this->player = $player;
@@ -26,6 +25,7 @@ class PlayerController extends Controller
     public function show(Request $request, $playerId)
     {
         try{
+
             $player = $this->player->find($playerId);
             $playerStats = $this->player->getPlayerStats($player->steam_id);
             $player->playerStats = $playerStats;

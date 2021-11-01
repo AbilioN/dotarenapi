@@ -24,6 +24,6 @@ class MatchTest extends TestCase
     public function match_can_be_found()
     {
          
-        $response = $this->get();
+        $response = $this->get('api/matches/6182303736');
     }
 }
