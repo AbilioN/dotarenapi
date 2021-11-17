@@ -22,6 +22,8 @@ class MatchController extends Controller
     public function find($matchId)
     {
         $match = $this->match->find($matchId);
+
+        
         return $this->response->sucess($match);
     }
 }
