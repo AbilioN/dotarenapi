@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
             if($logica = true)
             {
                 // 
-                return new PlayerRepository(new Player(), new PlayerService());
-
+                // return new PlayerRepository(new Player(), new PlayerService());
+                return PlayerRepository::class;
             }else{
                 return new PlayerService();
             }
@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         
 
         $this->app->bind(HeroesInterface::class, function(){
-            return new HeroeRepository(new HeroService());
+            return HeroeRepository::class;
         }); 
         
         $this->app->bind(ResponseInterface::class, function(){

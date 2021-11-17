@@ -25,5 +25,7 @@ class MatchTest extends TestCase
     {
          
         $response = $this->get('api/matches/6182303736');
+
+        dd($response->decodeResponseJson());
     }
 }
